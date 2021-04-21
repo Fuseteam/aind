@@ -12,3 +12,4 @@ services:
       volumes:
         - '/lib/modules:/lib/modules:ro'
         - './passwd:/home/user/.vnc'
+        - './apk-pre.d:/apk-pre.d'

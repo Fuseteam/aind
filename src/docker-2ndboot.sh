@@ -70,7 +70,6 @@ anbox session-manager ${SESSION_MANAGER_ARGS:-} &
 if ! waitUntil "Waiting for ready anbox" 60 "anbox wait-ready"; then
   exit 1
 fi
-anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
 
 adb wait-for-device
 
@@ -86,6 +85,7 @@ fi
 
 
 # done
+anbox launch  --action=android.intent.action.MAIN --package=org.jw.jwlibrary.mobile --component=org.jw.jwlibrary.mobile.MainActivity
 figlet "Ready"
 echo "Hint: the password is stored in $HOME/.vnc/passwdfile"
 exec sleep infinity
