@@ -93,7 +93,7 @@ RUN apt-get update && \
 # noVNC
   websockify novnc \
 # WM
-  fvwm xterm \
+  dwm xterm \
 # debug utilities
   busybox figlet file strace less && \
 # ...

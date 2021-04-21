@@ -47,7 +47,7 @@ if [ $INHERIT_DISPLAY -eq 0 ]; then
     sleep 1
     x11vnc -usepw -ncache 10 -forever -bg
 
-    fvwm &
+    dwm &
 fi
 
 if [ $WEBMODE = "1" ]; then
