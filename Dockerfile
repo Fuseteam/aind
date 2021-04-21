@@ -125,4 +125,5 @@ EXPOSE 5900
 EXPOSE 8080
 HEALTHCHECK --interval=15s --timeout=10s --start-period=60s --retries=5 \
   CMD ["pgrep", "-f", "org.anbox.appmgr"]
+WORKDIR "/home/user"
 CMD ["/home/user/docker-2ndboot.sh"]
