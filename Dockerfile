@@ -110,8 +110,8 @@ RUN apt-get update && \
   xvfb x11vnc \
 # noVNC
   websockify novnc \
-# WM
-  dwm xterm \
+# compositor
+  compton \
 # debug utilities
   busybox figlet file strace less && \
 # ...
