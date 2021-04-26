@@ -12,6 +12,24 @@ ARG ANDROID_IMAGE=https://github.com/AkihiroSuda/anbox-android-images-mirror/rel
 # https://build.anbox.io/android-images/2018/07/19/android_amd64.img.sha256sum
 ARG ANDROID_IMAGE_SHA256=6b04cd33d157814deaf92dccf8a23da4dc00b05ca6ce982a03830381896a8cca
 
+FROM ${BASE} AS dwm
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+  apt-get install -qq -y --no-install-recommends \
+  build-essential \
+  liblxc1 \
+  libxft-dev \
+  libx11-dev \
+  libxinerama-dev \
+  pkg-config \
+  protobuf-compiler \
+  x11-utils
+ADD dwm /dwm
+WORKDIR /dwm
+RUN make
+RUN chmod 755 dwm
+
+
 FROM ${BASE} AS anbox
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
@@ -109,6 +127,7 @@ COPY --from=android-img /android.img /aind-android.img
 COPY --from=anbox /anbox-binary /usr/local/bin/anbox
 COPY --from=anbox /anbox/scripts/anbox-bridge.sh /usr/local/share/anbox/anbox-bridge.sh
 COPY --from=anbox /anbox/data/ui /usr/local/share/anbox/ui
+COPY --from=dwm /dwm /usr/local/bin
 RUN ldconfig
 ADD src/anbox-container-manager-pre.sh /usr/local/bin/anbox-container-manager-pre.sh
 ADD src/anbox-container-manager.service /lib/systemd/system/anbox-container-manager.service
