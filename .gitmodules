@@ -1,3 +1,6 @@
 [submodule "dwm"]
 	path = dwm
 	url = ./dwm/
+[submodule "st"]
+	path = st
+	url = ./st
