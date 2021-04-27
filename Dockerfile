@@ -113,7 +113,7 @@ RUN apt-get update && \
 # compositor
   compton \
 # debug utilities
-  busybox figlet file strace less && \
+  x11-utils busybox figlet file strace less && \
 # ...
   useradd --create-home --home-dir /home/user --uid 1000 -G systemd-journal user  && \
   curl -L -o /docker-entrypoint.sh https://raw.githubusercontent.com/AkihiroSuda/containerized-systemd/6ced78a9df65c13399ef1ce41c0bedc194d7cff6/docker-entrypoint.sh && \
