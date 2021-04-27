@@ -25,6 +25,10 @@ ADD dwm /dwm
 WORKDIR /dwm
 RUN make
 RUN chmod 755 dwm
+ADD st /st
+WORKDIR /st
+RUN make
+RUN chmod 755 st
 
 
 FROM ${BASE} AS anbox
@@ -124,7 +128,10 @@ COPY --from=android-img /android.img /aind-android.img
 COPY --from=anbox /anbox-binary /usr/local/bin/anbox
 COPY --from=anbox /anbox/scripts/anbox-bridge.sh /usr/local/share/anbox/anbox-bridge.sh
 COPY --from=anbox /anbox/data/ui /usr/local/share/anbox/ui
-COPY --from=dwm /dwm /usr/local/bin
+COPY --from=dwm /dwm/dwm /usr/local/bin
+COPY --from=dwm /st/st /usr/local/bin
+COPY --from=dwm /st/st.info /etc
+RUN tic -sx /etc/st.info
 RUN ldconfig
 ADD src/anbox-container-manager-pre.sh /usr/local/bin/anbox-container-manager-pre.sh
 ADD src/anbox-container-manager.service /lib/systemd/system/anbox-container-manager.service
