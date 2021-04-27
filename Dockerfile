@@ -20,10 +20,7 @@ RUN apt-get update && \
   liblxc1 \
   libxft-dev \
   libx11-dev \
-  libxinerama-dev \
-  pkg-config \
-  protobuf-compiler \
-  x11-utils
+  libxinerama-dev
 ADD dwm /dwm
 WORKDIR /dwm
 RUN make
