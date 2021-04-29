@@ -57,7 +57,6 @@ sudo modprobe binder_linux
 #### VNC
 ```bash
 docker run -td --name aind --privileged -p 5900:5900 -v /lib/modules:/lib/modules:ro aind/aind
-docker exec aind cat /home/user/.vnc/passwdfile
 ```
 
 > **NOTE**: `--privileged` is required for nesting an Anbox (LXC) inside Docker. But you don't need to worry too much because Anbox launches "unprivileged" LXC using user namespaces. You can confirm that all Android processes are running as non-root users, by executing `docker exec aind ps -ef`.
