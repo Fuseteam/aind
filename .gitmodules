@@ -1,6 +1,7 @@
 [submodule "dwm"]
 	path = dwm
-	url = ./dwm/
+	url = https://github.com/fuseteam/dwm/
+	branch = aindwm
 [submodule "st"]
 	path = st
-	url = ./st
+	url = git://git.suckless.org/st
