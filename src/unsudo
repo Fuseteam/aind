@@ -10,7 +10,7 @@ fi
 
 # machinectl requires absolute path
 params=("shell")
-avail_envs="INHERIT_DISPLAY DISPLAY SESSION_MANAGER_ARGS POST_SESSION_SCRIPT WEBMODE"
+avail_envs="INHERIT_DISPLAY DISPLAY SESSION_MANAGER_ARGS POST_SESSION_SCRIPT WEBMODE EGL_PLATFORM"
 for name in $avail_envs; do
 	[ -n "${!name:-}" ] && params+=("--setenv=$name=${!name}")
 done

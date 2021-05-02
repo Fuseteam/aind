@@ -28,8 +28,6 @@ function waitUntil() {
 cd $(realpath $(dirname $0)/..)
 set -eux
 
-export EGL_PLATFORM=x11
-
 if [ $INHERIT_DISPLAY -eq 0 ]; then
     mkdir -p ~/.vnc
     if [ ! -e ~/.vnc/passwdfile ]; then
