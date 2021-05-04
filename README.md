@@ -1,21 +1,13 @@
-# :warning: Deprecated in favor of ReDroid
-
-As of April 2021, AinD is deprecated in favor of [ReDroid](https://github.com/remote-android/redroid-doc).
-
-While Anbox/AinD has got stuck in Android 7.1, ReDroid supports very recent Android versions: 8.1, 9, 10, 11, and Android S (12).
-
-- - -
-# AinD: Android (Anbox) in Docker
+# AinD: Anbox in Docker
 
 AinD launches Android apps in Docker, by nesting [Anbox](https://anbox.io/) containers inside Docker.
 
 Unlike VM-based similar projects, AinD can be executed on IaaS instances without support for nested virtualization.
 
-Docker Hub: [`aind/aind`](https://hub.docker.com/r/aind/aind)
+Docker Hub: [`fuseteam/aindwm`](https://hub.docker.com/r/fuseteam/aindwm)
 
 ## Purposes
-* Anti-theft (see [FAQ](#faq))
-* Android compatibility (via cloud) for iOS and Windows tablets
+* Android compatibility (via cloud) for Linux devices (Desktop and Mobile)
 
 ### Non-goals
 * Cloud gaming
@@ -160,19 +152,15 @@ APK files mounted as `/apk.d/*.apk` are automatically installed on start up.
 You can also use [F-Droid](https://f-droid.org/).
 To use F-Droid, enable "Settings" -> "Security" -> "Allow installation of apps from unknown sources".
 
-## FAQ
-### Isn't encrypting the phone with strong passcode enough for anti-theft? Why do we need aind?
-People in the real world are likely to set weak passcode like "1234" (or finger pattern), because they want to open email/phone/twitter/maps/payment apps in just a few seconds.
-
-aind is expected to be used in conjunction with encryption of the client device, and to be used only for sensitive apps, with a passcode that is stronger than the passcode of the client device itself.
-
 ## TODOs
 * Map different UID range per containers
 * Better touch screen experience
+* Better desktop resizing
 * Redirect camera, notifications, ...
 
 ## Similar projects
 * [Anbox](https://anbox.io/): Desktop only and single-user/single-instance only. aind is built using Anbox.
+* [Redroid](https://github.com/remote-android/redroid-doc): Android x86 in docker. skips anbox all together
 * [Android container in Chrome OS](https://chromium.googlesource.com/chromiumos/platform2/+/master/arc/container-bundle/): ChromeOS/ChromiumOS-only
 * [Docker-Android](https://github.com/budtmo/docker-android): VM-based
 * [kubedroid](https://github.com/kubedroid/kubedroid): VM-based
