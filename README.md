@@ -71,7 +71,7 @@ To run the container with [noVNC](https://novnc.com/) support, the environment v
 
 ```bash
 docker run -td --name aind --privileged -p 8080:8080 -e "WEBMODE=1" -v /lib/modules:/lib/modules:ro aind/aind
-docker exec aind cat /home/user/.vnc/passwdfile
+docker exec aind cat .vnc/passwdfile
 ```
 
 The container will be accessible via the browser at http://localhost:8080/vnc.html
@@ -84,7 +84,7 @@ docker-compose up -d
 ```
 the vnc password can be gotten with
 ```
-docker-compose exec aind cat /home/user/.vnc/passwdfile
+docker-compose exec aind cat .vnc/passwdfile
 ```
 you can check how far it is with
 ```
