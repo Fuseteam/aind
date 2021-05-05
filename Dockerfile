@@ -133,10 +133,9 @@ COPY --from=dwm /st/st /usr/local/bin
 COPY --from=dwm /st/st.info /etc
 RUN tic -sx /etc/st.info
 RUN ldconfig
-ADD src/anbox-container-manager-pre.sh /usr/local/bin/anbox-container-manager-pre.sh
+ADD src/bin/* /usr/local/bin/
 ADD src/anbox-container-manager.service /lib/systemd/system/anbox-container-manager.service
 RUN systemctl enable anbox-container-manager
-ADD src/unsudo /usr/local/bin
 ADD src/docker-2ndboot.sh  /home/user
 
 ENV EGL_PLATFORM x11
