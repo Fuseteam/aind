@@ -9,6 +9,7 @@ jobs:
     - run: docker info
     - run: docker version
     - run: cat /proc/cpuinfo
+    - run: git submodule update --init
 # test
     - run: ./hack/translate-dockerfile-runopt-directive.sh < Dockerfile | DOCKER_BUILDKIT=1 docker build -f - -t aind/aind:local .
     - run: sudo ./hack/install-kmod.sh
